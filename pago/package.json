@@ -1,0 +1,13 @@
+{
+  "name": "pago",
+  "version": "1.0.0",
+  "description": "Pago Api",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
