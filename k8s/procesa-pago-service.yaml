@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: procesa-pago-service
+spec:
+  type: ClusterIP
+  selector:
+    app: procesa-pago
+  ports:
+    - name: http
+      port: 9090
+      targetPort: 9090
+      protocol: TCP

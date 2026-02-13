@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pago-deployment
+  labels:
+    app: pago
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pago
+  template:
+    metadata:
+      labels:
+        app: pago
+    spec:
+      containers:
+        - name: pago
+          image: pago:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PROCESA_URL
+              value: "http://procesa-pago-service:9090"
+          volumeMounts:
+            - name: logs
+              mountPath: /var/log
+      volumes:
+        - name: logs
+          emptyDir: {}
